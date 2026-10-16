@@ -1,0 +1,15 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configuración local
+*.log
+.env
+
+# Dependencias
+node_modules/
+vendor/
+
+# Archivos temporales
+*.tmp
+*.bak
