@@ -179,6 +179,6 @@ $perimetroActual = $registroEditar['perimetro'] ?? '';
         </div>
     </main>
 
-    <script src="../assetes/js/app.js?v=2"></script>
+    <script src="../assetes/js/app.js?v=3"></script>
 </body>
 </html>

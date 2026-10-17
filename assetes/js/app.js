@@ -1,47 +1,38 @@
-/*document.addEventListener('DOMContentLoaded', function(){
-    const formulario = document.getElementById('frmLogin');
-    
-    formulario.addEventListener('submit',function(e){
-        e.preventDefault();
-
-        const user = document.getElementById('user').value.trim();
-        const pass = document.getElementById('pass').value.trim();
-
-        if(user==="tito" && pass==="123"){        
-            window.location.href="home.php";
-        }else{
-            alert("dato incorrectos");
-        }
-    });
-
- 
-}); */
+/* 
+ * Lógica para poder calcular la circunferencia:
+ * Área = π * r²
+ * Perímetro = 2 * π * r
+ */
 
 function calcularCircunferencia() {
-    const ladoInput = document.getElementById('txtLado');
+    const radioInput = document.getElementById('txtRadio');
     const areaInput = document.getElementById('txtA');
     const perimetroInput = document.getElementById('txtP');
 
-    if (!ladoInput || !areaInput || !perimetroInput) {
+    if (!radioInput || !areaInput || !perimetroInput) {
         return;
     }
 
-    const lado = parseFloat(ladoInput.value);
+    const radio = parseFloat(radioInput.value);
 
-    if (isNaN(lado) || lado <= 0) {
-        alert('Ingrese un lado válido mayor a cero');
-        ladoInput.focus();
+    if (isNaN(radio) || radio <= 0) {
+        alert('Ingrese un radio válido mayor a cero');
+        radioInput.focus();
         return;
     }
 
-    areaInput.value = (lado * lado).toFixed(2);
-    perimetroInput.value = (lado * 4).toFixed(2);
+    // Fórmulas de la circunferencia
+    const area = Math.PI * (radio * radio);
+    const perimetro = 2 * Math.PI * radio;
+
+    areaInput.value = area.toFixed(2);
+    perimetroInput.value = perimetro.toFixed(2);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const ladoInput = document.getElementById('txtLado');
+    const radioInput = document.getElementById('txtRadio');
 
-    if (ladoInput) {
-        ladoInput.addEventListener('input', calcularCuadrado);
+    if (radioInput) {
+        radioInput.addEventListener('input', calcularCircunferencia);
     }
 });
