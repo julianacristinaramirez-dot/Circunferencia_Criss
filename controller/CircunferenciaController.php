@@ -1,13 +1,19 @@
 <?php
-require_once __DIR__ . '/../model/Cuadrado.php';
+declare(strict_types=1);
 
-class CuadradoController
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../model/Circunferencia.php';
+
+class CircunferenciaController
 {
-    private Cuadrado $modelo;
+    private Circunferencia $modelo;
 
     public function __construct()
     {
-        $this->modelo = new Cuadrado();
+        $this->modelo = new Circunferencia();
     }
 
     public function procesarFormulario(): string
@@ -31,28 +37,35 @@ class CuadradoController
 
     private function guardarOActualizar(): string
     {
-        $id = (int) ($_POST['id_cuadrado'] ?? 0);
+        $id = (int) ($_POST['id_circunferencia'] ?? 0);
         $detalle = trim($_POST['txtDetalle'] ?? '');
-        $lado = trim($_POST['txtLado'] ?? '');
+        $radio = trim($_POST['txtRadio'] ?? '');
 
-        if ($lado === '' || !is_numeric($lado) || (float) $lado <= 0) {
-            return 'Ingrese un lado válido mayor a cero';
+        if ($radio === '' || !is_numeric($radio) || (float) $radio <= 0) {
+            return 'Ingrese un radio válido mayor a cero';
         }
 
         if ($id > 0) {
-            $this->modelo->actualizar($id, $detalle, (float) $lado);
+            $this->modelo->actualizar($id, $detalle, (float) $radio);
             header('Location: home.php?mensaje=actualizado');
             exit;
         }
 
-        $this->modelo->guardar($detalle, (float) $lado);
+        // Obtener el id_usuario de la sesión
+        $idUsuario = $_SESSION['id_usuario'] ?? 0;
+        if ($idUsuario <= 0) {
+            header('Location: login.php');
+            exit;
+        }
+
+        $this->modelo->guardar($detalle, (float) $radio, $idUsuario);
         header('Location: home.php?mensaje=guardado');
         exit;
     }
 
     private function eliminar(): string
     {
-        $id = (int) ($_POST['id_cuadrado'] ?? 0);
+        $id = (int) ($_POST['id_circunferencia'] ?? 0);
 
         if ($id <= 0) {
             return 'No se pudo eliminar el registro';

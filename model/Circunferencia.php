@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
+
 require_once __DIR__ . '/../config/Database.php';
 
-class Cuadrado
+class Circunferencia
 {
     private PDO $pdo;
 
@@ -14,19 +16,19 @@ class Cuadrado
     public function listar(string $buscar = ''): array
     {
         if ($buscar !== '') {
-            $sql = "SELECT * FROM cuadrado
+            $sql = "SELECT * FROM circunferencia
                     WHERE detalle LIKE :buscarDetalle
-                       OR CAST(lado AS CHAR) LIKE :buscarLado
+                       OR CAST(radio AS CHAR) LIKE :buscarRadio
                        OR CAST(area AS CHAR) LIKE :buscarArea
                        OR CAST(perimetro AS CHAR) LIKE :buscarPerimetro
-                    ORDER BY id_cuadrado DESC";
+                    ORDER BY id_circunferencia DESC";
             $stmt = $this->pdo->prepare($sql);
 
             $valorBuscar = '%' . $buscar . '%';
 
             $stmt->execute([
                 'buscarDetalle' => $valorBuscar,
-                'buscarLado' => $valorBuscar,
+                'buscarRadio' => $valorBuscar,
                 'buscarArea' => $valorBuscar,
                 'buscarPerimetro' => $valorBuscar,
             ]);
@@ -34,13 +36,13 @@ class Cuadrado
             return $stmt->fetchAll();
         }
 
-        $sql = "SELECT * FROM cuadrado ORDER BY id_cuadrado DESC";
+        $sql = "SELECT * FROM circunferencia ORDER BY id_circunferencia DESC";
         return $this->pdo->query($sql)->fetchAll();
     }
 
     public function obtenerPorId(int $id): ?array
     {
-        $sql = "SELECT * FROM cuadrado WHERE id_cuadrado = :id LIMIT 1";
+        $sql = "SELECT * FROM circunferencia WHERE id_circunferencia = :id LIMIT 1";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['id' => $id]);
         $registro = $stmt->fetch();
@@ -48,40 +50,41 @@ class Cuadrado
         return $registro ?: null;
     }
 
-    public function guardar(string $detalle, float $lado): bool
+    public function guardar(string $detalle, float $radio, int $idUsuario): bool
     {
-        $area = $lado * $lado;
-        $perimetro = $lado * 4;
+        $area = M_PI * ($radio * $radio); // π * r²
+        $perimetro = 2 * M_PI * $radio;   // 2 * π * r
 
-        $sql = "INSERT INTO cuadrado(detalle, lado, area, perimetro)
-                VALUES(:detalle, :lado, :area, :perimetro)";
+        $sql = "INSERT INTO circunferencia(detalle, radio, area, perimetro, id_usuario)
+                VALUES(:detalle, :radio, :area, :perimetro, :id_usuario)";
         $stmt = $this->pdo->prepare($sql);
 
         return $stmt->execute([
             'detalle' => $detalle,
-            'lado' => $lado,
+            'radio' => $radio,
             'area' => $area,
             'perimetro' => $perimetro,
+            'id_usuario' => $idUsuario
         ]);
     }
 
-    public function actualizar(int $id, string $detalle, float $lado): bool
+    public function actualizar(int $id, string $detalle, float $radio): bool
     {
-        $area = $lado * $lado;
-        $perimetro = $lado * 4;
+        $area = M_PI * ($radio * $radio);
+        $perimetro = 2 * M_PI * $radio;
 
-        $sql = "UPDATE cuadrado
+        $sql = "UPDATE circunferencia
                 SET detalle = :detalle,
-                    lado = :lado,
+                    radio = :radio,
                     area = :area,
                     perimetro = :perimetro
-                WHERE id_cuadrado = :id";
+                WHERE id_circunferencia = :id";
         $stmt = $this->pdo->prepare($sql);
 
         return $stmt->execute([
             'id' => $id,
             'detalle' => $detalle,
-            'lado' => $lado,
+            'radio' => $radio,
             'area' => $area,
             'perimetro' => $perimetro,
         ]);
@@ -89,7 +92,7 @@ class Cuadrado
 
     public function eliminar(int $id): bool
     {
-        $sql = "DELETE FROM cuadrado WHERE id_cuadrado = :id";
+        $sql = "DELETE FROM circunferencia WHERE id_circunferencia = :id";
         $stmt = $this->pdo->prepare($sql);
 
         return $stmt->execute(['id' => $id]);
