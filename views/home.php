@@ -5,7 +5,7 @@ require_once __DIR__ . '/../controller/CircunferenciaController.php';
 
 AuthController::verificarSesion();
 
-$cuadradoController = new CuadradoController();
+$circunferenciaController = new CircunferenciaController();
 $mensaje = $_GET['mensaje'] ?? '';
 $mensajeFormulario = $circunferenciaController->procesarFormulario();
 

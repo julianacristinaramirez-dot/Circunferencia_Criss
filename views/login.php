@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index,follow">
     <meta name="description" content="Calculo de la circunferencia">
-    <meta name="keywords" content="circunferencia, sistema, base de datos">
-    <meta name="author" content="BC TECH">
+    <meta name="keywords" content="Circunferencia, sistema, base de datos">
+    <meta name="author" content="JC TECH">
 
     <link rel="icon" href="../imagenes/icono.png">
     <link rel="stylesheet" href="../assetes/css/style.css">
 
-    <title>Cuadrado</title>
+    <title>Circunferencia</title>
 </head>
 <body>
     <header>
