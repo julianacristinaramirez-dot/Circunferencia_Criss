@@ -22,7 +22,7 @@ if (isset($_GET['editar'])) {
 
 $registros = $CircunferenciaController->listar($buscar);
 
-$idActual = $registroEditar['id_cuadrado'] ?? '';
+$idActual = $registroEditar['id_circunferencia'] ?? '';
 $ladoActual = $registroEditar['lado'] ?? '';
 $detalleActual = $registroEditar['detalle'] ?? '';
 $areaActual = $registroEditar['area'] ?? '';
@@ -35,14 +35,14 @@ $perimetroActual = $registroEditar['perimetro'] ?? '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="Calculo del area y perimetro del cuadrado">
-    <meta name="keywords" content="cuadrado, sistema, base de datos">
+    <meta name="description" content="Calculo del area y perimetro de la circunferencia">
+    <meta name="keywords" content="circunferencia, sistema, base de datos">
     <meta name="author" content="BC TECH">
 
     <link rel="icon" href="../imagenes/icono.png">
     <link rel="stylesheet" href="../assetes/css/style_home.css">
 
-    <title>cuadrado-principal</title>
+    <title>circunferencia-principal</title>
 </head>
 <body>
     <header class="headeerHome">
@@ -94,12 +94,12 @@ $perimetroActual = $registroEditar['perimetro'] ?? '';
 
 
             <form action="" method="post" class="form2" id="frmFormulario">
-                <input type="hidden" name="id_cuadrado" value="<?php echo htmlspecialchars($idActual); ?>">
+                <input type="hidden" name="id_circunferencia" value="<?php echo htmlspecialchars($idActual); ?>">
 
                 <div class="inputs">
-                    <label for="lado">Lado</label>
-                    <input class="inputHome"type="decimal" name="txtLado" id="txtLado" placeholder="Lado"
-                     value="<?php echo htmlspecialchars($ladoActual); ?>">
+                    <label for="radio">Radio</label>
+                    <input class="inputHome"type="decimal" name="txtRadio" id="txtRadio" placeholder="Radio"
+                     value="<?php echo htmlspecialchars($radioActual); ?>">
                 </div>
                 <div class="inputs">
                     <label for="comentario">Comentario</label>
