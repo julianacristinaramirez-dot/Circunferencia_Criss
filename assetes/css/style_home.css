@@ -2,8 +2,8 @@
 /*   Home - Pastel      */
 /*======================*/
 :root{
-    --fondo: #c6edfc;
-    --fondo-2: #c4f2d9;
+    --fondo: #8291d9;
+    --fondo-2: #cafbe0;
     --tarjeta: #fffaf3;
     --primario: #b8a7e6;
     --primario-oscuro: #826fc0;
@@ -31,8 +31,8 @@ body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: var(--texto);
     background:
-        radial-gradient(circle at top left, rgba(184, 167, 230, 0.35), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(189, 235, 214, 0.45), transparent 35%),
+        radial-gradient(circle at top left, rgba(188, 167, 244, 0.507), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(181, 244, 215, 0.549), transparent 35%),
         var(--fondo);
 }
 

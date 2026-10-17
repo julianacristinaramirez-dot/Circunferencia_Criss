@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 require_once __DIR__ . '/../config/Database.php';
 
 class Usuario
@@ -22,7 +24,8 @@ class Usuario
             return null;
         }
 
-        // Para este proyecto se permite clave simple. También acepta clave encriptada con password_hash().
+        // NOTA: en producción solo se debe usar password_verify().
+        // Se mantiene la comparación directa para compatibilidad con la clave inicial.
         if ($clave === $usuario['clave'] || password_verify($clave, $usuario['clave'])) {
             return $usuario;
         }

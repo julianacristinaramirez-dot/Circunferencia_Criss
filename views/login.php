@@ -45,16 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
         <div class="caja">
             <form action="" method="post" id="frmLogin">
-                <img src="../imagenes/logo.png" alt="logo onstituciones">
+                <img src="../imagenes/logo.png" alt="logo instituciones">
                 <input type="email" name="correo" id="correo" placeholder="Correo">
                 <input type="password" name="clave" id="clave" placeholder="Clave">
-                <button type="submit" id="btnIngresar">Ingesar</button>
+                <button type="submit" id="btnIngresar">Ingresar</button>
             </form>
-            <?php  if(!empty($usuario)) :  ?>
+            <?php if (!empty($mensaje)) : ?>
                 <script>
                     alert("<?php echo htmlspecialchars($mensaje, ENT_QUOTES, 'UTF-8'); ?>");
                 </script>
-            <?php   endif; ?>
+            <?php endif; ?>
         </div>
     </main>
     <footer>
