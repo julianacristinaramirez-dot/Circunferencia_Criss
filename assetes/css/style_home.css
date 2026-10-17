@@ -1,24 +1,7 @@
 /*======================*/
 /*   Home - Pastel      */
 /*======================*/
-:root{
-    --fondo: #8291d9;
-    --fondo-2: #cafbe0;
-    --tarjeta: #fffaf3;
-    --primario: #b8a7e6;
-    --primario-oscuro: #826fc0;
-    --secundario: #bdebd6;
-    --secundario-oscuro: #78b89c;
-    --acento: #ffd6ba;
-    --acento-oscuro: #dd9a70;
-    --texto: #3f3d56;
-    --texto-suave: #6f6a80;
-    --borde: #e3d8f2;
-    --linea: #eee4d5;
-    --blanco: #ffffff;
-    --peligro: #fd9797;
-    --sombra: 0 16px 32px rgba(63, 61, 86, 0.12);
-}
+
 
 *{
     margin: 0;
@@ -29,11 +12,11 @@
 body{
     min-height: 100vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: var(--texto);
+    color: #3f3d56; /* Texto principal */
     background:
-        radial-gradient(circle at top left, rgba(188, 167, 244, 0.507), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(181, 244, 215, 0.549), transparent 35%),
-        var(--fondo);
+        radial-gradient(circle at top left, rgba(188, 167, 244, 0.507), transparent 600%),
+        radial-gradient(circle at bottom right, rgba(181, 244, 215, 0.549), transparent 500%)
+        
 }
 
 /*======================*/
@@ -42,8 +25,8 @@ body{
 .headerHome{
     width: 100%;
     min-height: 130px;
-    background: rgba(255, 250, 243, 0.92);
-    border-bottom: 1px solid var(--linea);
+    background: rgba(144, 182, 194, 0.92);
+    border-bottom: 1px solid #eee4d5;
     box-shadow: 0 10px 25px rgba(63, 61, 86, 0.08);
 }
 
@@ -66,9 +49,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--borde);
+    border: 1px solid #e3d8f2;
     border-radius: 16px;
-    background-color: var(--blanco);
+    background-color: #ffffff;
     box-shadow: 0 8px 18px rgba(63, 61, 86, 0.08);
     overflow: hidden;
 }
@@ -81,61 +64,25 @@ body{
 .logo h1{
     font-size: 22px;
     margin: 0 12px 0 5px;
-    color: var(--texto);
+    color: #3f3d56;
 }
 
 .logo-links a{
     text-decoration: none;
     font-size: 20px;
-    color: var(--texto);
+    color: #3f3d56;
     padding: 10px 14px;
     border-radius: 12px;
     transition: 0.25s ease;
 }
 
 .logo-links a:hover{
-    background-color: var(--fondo-2);
-    color: var(--primario-oscuro);
-}
-
-header .buscarHeader{
-    display: flex;
-}
-
-.buscarHeader .form1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 16px;
-    border: 1px solid var(--borde);
-    width: min(400px, 100%);
-    height: 64px;
-    background-color: var(--fondo-2);
-    padding: 0 12px;
-}
-
-.form1 img{
-    width: 34px;
-}
-
-.form1 input{
-    width: 280px;
-    height: 40px;
-    outline: none;
-    border-radius: 12px;
-    padding-left: 12px;
-    border: 0;
-    color: var(--texto);
-    background-color: var(--blanco);
-}
-
-.form1 input:focus{
-    box-shadow: 0 0 0 3px rgba(184, 167, 230, 0.22);
+    background-color: #cafbe0;
+    color: #826fc0;
 }
 
 .lineaInf{
-    background: linear-gradient(90deg, var(--secundario), var(--acento));
+    background: linear-gradient(90deg, #bdebd6, #ffd6ba);
     width: 100%;
     min-height: 50px;
     display: flex;
@@ -164,7 +111,7 @@ header .buscarHeader{
     display: block;
     text-decoration: none;
     font-size: 20px;
-    color: var(--texto);
+    color: #3f3d56;
     padding: 12px 10px;
 }
 
@@ -187,10 +134,10 @@ main{
 .buscar,
 .tabla{
     width: min(1100px, 90%);
-    background-color: rgba(255, 250, 243, 0.95);
-    border: 1px solid var(--borde);
+    background-color: rgba(255, 203, 233, 0.95);
+    border: 1px solid #e3d8f2;
     border-radius: 24px;
-    box-shadow: var(--sombra);
+    box-shadow: 0 16px 32px rgba(63, 61, 86, 0.12);
 }
 
 .datos{
@@ -213,11 +160,11 @@ main{
 
 .datos .titulo h1{
     font-size: clamp(25px, 4vw, 36px);
-    color: var(--texto);
+    color: #3f3d56;
 }
 
 .datos .titulo p{
-    color: var(--texto-suave);
+    color: #6f6a80;
     font-size: 18px;
     margin-top: 5px;
 }
@@ -232,7 +179,7 @@ main{
     justify-content: center;
     min-height: 58px;
     margin: 9px 0;
-    background-color: var(--fondo-2);
+    background-color: #cafbe0;
     border: 1px solid transparent;
     border-radius: 16px;
     padding: 8px 14px;
@@ -240,14 +187,14 @@ main{
 }
 
 .form2 .inputs:focus-within{
-    border-color: var(--primario);
-    background-color: var(--blanco);
+    border-color: #b8a7e6;
+    background-color: #ffffff;
     box-shadow: 0 0 0 4px rgba(184, 167, 230, 0.18);
 }
 
 .datos .form2 .inputs label{
     width: 200px;
-    color: var(--texto);
+    color: #3f3d56;
     font-size: 18px;
     font-weight: 600;
 }
@@ -257,17 +204,16 @@ main{
     height: 36px;
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid var(--primario);
-    color: var(--texto);
+    border-bottom: 1px solid #b8a7e6;
+    color: #3f3d56;
     outline: none;
     font-size: 18px;
     padding-left: 8px;
 }
 
 .datos .form2 .inputs .inputHome::placeholder,
-.buscar form input::placeholder,
-.form1 input::placeholder{
-    color: var(--texto-suave);
+.buscar form input::placeholder{
+    color: #6f6a80;
 }
 
 .datos .botones,
@@ -286,7 +232,7 @@ main{
     min-width: 160px;
     height: 42px;
     font-size: 18px;
-    color: var(--texto);
+    color: #3f3d56;
     border: 0;
     border-radius: 14px;
     cursor: pointer;
@@ -295,16 +241,12 @@ main{
 }
 
 .botones button:nth-child(1){
-    background-color: var(--secundario);
-}
-
-.botones button:nth-child(2){
-    background-color: var(--acento);
+    background-color: #bdebd6;
 }
 
 .botones button:nth-child(3){
-    background-color: var(--primario);
-    color: var(--blanco);
+    background-color: #b8a7e6;
+    color: #ffffff;
 }
 
 .botones button:hover,
@@ -332,8 +274,8 @@ main{
     min-height: 55px;
     width: min(850px, 95%);
     border-radius: 16px;
-    background-color: var(--fondo-2);
-    border: 1px solid var(--borde);
+    background-color: #cafbe0;
+    border: 1px solid #e3d8f2;
     padding: 8px 10px;
 }
 
@@ -342,8 +284,8 @@ main{
 }
 
 .buscar form button{
-    background-color: var(--primario);
-    color: var(--blanco);
+    background-color: #b8a7e6;
+    color: #ffffff;
 }
 
 .buscar form input{
@@ -354,8 +296,8 @@ main{
     border: 0;
     font-size: 18px;
     padding-left: 12px;
-    color: var(--texto);
-    background-color: var(--blanco);
+    color: #3f3d56;
+    background-color: #ffffff;
 }
 
 .buscar form input:focus{
@@ -386,7 +328,7 @@ main{
     border-collapse: collapse;
     overflow: hidden;
     border-radius: 16px;
-    background-color: var(--blanco);
+    background-color: #fbcdcd;
     box-shadow: 0 8px 18px rgba(63, 61, 86, 0.08);
 }
 
@@ -394,35 +336,89 @@ table th,
 table td{
     padding: 13px 10px;
     text-align: center;
-    border-bottom: 1px solid var(--linea);
+    border-bottom: 1px solid #eee4d5;
 }
 
 table th{
-    background-color: var(--primario);
-    color: var(--blanco);
+    background-color: #b8a7e6;
+    color: #ffffff;
     font-size: 17px;
 }
 
 table td{
-    color: var(--texto);
+    color: #3f3d56;
     font-size: 16px;
 }
 
 table tbody tr:nth-child(even){
-    background-color: var(--fondo-2);
+    background-color: #bde9f9;
 }
 
 table tbody tr:hover{
-    background-color: #fff1df;
+    background-color: #bde9f9;
 }
 
-.tabla .botones button:nth-child(1){
-    background-color: var(--peligro);
-    color: var(--texto);
+/*======================*/
+/* Estilos para botones de Enlaces y Tabla */
+/*======================*/
+.btn-link, .btn-tabla {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: none;
+    display: inline-block;
 }
 
-.tabla .botones button:nth-child(2){
-    background-color: var(--acento);
+.btn-link.cancelar {
+    color: #826fc0;
+    background-color: transparent;
+    border: 2px solid #826fc0;
+}
+
+.btn-link.cancelar:hover {
+    background-color: #826fc0;
+    color: rgb(243, 208, 208);
+}
+
+.btn-link.limpiar {
+    color: #d9534f;
+    margin-left: 10px;
+}
+
+.btn-link.limpiar:hover {
+    text-decoration: underline;
+}
+
+.btn-tabla.editar {
+    background-color: #4ef097;
+    color: white;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.btn-tabla.editar:hover {
+    background-color: #1feca1;
+}
+
+.btn-tabla.eliminar {
+    background-color: #d94fb9;
+    color: white;
+    width: 100%;
+}
+
+.btn-tabla.eliminar:hover {
+    background-color: #c92c92;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /*======================*/
@@ -448,15 +444,6 @@ table tbody tr:hover{
     .logo-links{
         flex-direction: column;
         gap: 8px;
-    }
-
-    .buscarHeader,
-    .buscarHeader .form1{
-        width: 100%;
-    }
-
-    .form1 input{
-        width: 100%;
     }
 
     .lineaInf{
